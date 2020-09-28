@@ -23,6 +23,9 @@ parser-demo.c - a demo program for the CSV validator and interpreter
 Compile parser-demo.c with the _DEBUG macro to have the validator print
 debugging information to the console.
 
+If anything doesn't work for you, don't hesitate to notify me, so I can
+fix it.
+
 
 I know there's not much here at the moment, but I will be adding more
 code very soon, so stay tuned!
