@@ -20,7 +20,7 @@ all my other software is released
 parser-demo.c - a demo program for the CSV validator and interpreter
 
 
-Usage for parser-demo.c: <executable> <csv-file> [--noheader]
+Usage for parser-demo.c: ./parser-demo file.csv [--noheader]
 
 Compile parser-demo.c with the _DEBUG macro to have the validator print
 debugging information to the console.
