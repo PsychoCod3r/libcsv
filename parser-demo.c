@@ -1,7 +1,7 @@
 /**********************************************
  * CSV Parser Demo, Version 0.1 Alpha         *
  * Author: Michael Warren, a.k.a Psycho Cod3r *
- * Date September 2020                        *
+ * Date: September 2020                       *
  * License: Michael Warren FSL                *
  **********************************************/
 
@@ -558,7 +558,6 @@ bool validate( FILE *fp, bool has_header ){
 			fprintf( stderr, "Error: Turing machine fall-though.\nIf you are seeing this message, it means that there is a possible set\nof Turing machine parameters that the programmer failed to account for.\nPlease notify Michael Warren a.k.a. Psycho Cod3r using the email address\nlisted on his GitHub.\n" );
 			exit( -1 );
 		}
-		// MORE CODE HERE
 		if( debug ){
 			printf( "Next state: %s\n", state_strings[state] );
 			printf( "Next tape symbol: %s\n", symbol_strings[head->symbol] );
