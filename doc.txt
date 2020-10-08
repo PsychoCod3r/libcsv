@@ -1,0 +1,49 @@
+This is a temporary documentation file until I get some actual man
+pages written.
+
+
+libcsv defines the following data types:
+
+csv_table - a handle for a table structure
+csv_record - a handle for a single record within a table
+csv_field - a single field in the CSV header
+
+Ideally, only the csv_table type should be accessed directly, but I
+understand that until I implement more of the interface, use of some of
+the internal implementation components may be necessary. Thank you for
+your patience. :)
+
+
+libcsv defines the following functions:
+
+bool csv_validate_file( FILE *fp, bool has_header )
+Takes a file pointer for the CSV file and a Boolean indicating whether
+the file is supposed to have a header; returns true if the file is valid
+CSV, false otherwise
+
+csv_table *csv_read_table( FILE *fp, bool has_header )
+Reads a CSV file and builds a table structure based on that file,
+returning a pointer to the table structure
+
+void csv_write_table( FILE *fp, csv_table *table, bool has_header )
+Writes a CSV table structure back to the file pointed to by fp
+
+
+libcsv has one dependency: libdfloat. libdfloat can be found in the
+libdfloat repository on my GitHub (github.com/PsychoCod3r).
+
+
+Installation and usage instructions:
+
+1. Download libcsv and libdfloat repositories and merge them into
+   one folder.
+
+2. Run the following commands:
+   gcc -c csv-file.c dfloat.c
+   ar -rsv libcsv.a csv-file.o
+   ar -rsv libdfloat.a dfloat.o
+
+3. To link the libcsv and libdfloat libraries to a project, run the
+   following command:
+   gcc myproject -L dir -lcsv -ldfloat
+   (where dir is the directory containing libcsv.a and libdfloat.a)
