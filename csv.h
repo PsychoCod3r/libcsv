@@ -34,11 +34,23 @@ typedef struct _csv_record csv_record;
 
 // Handle for abstract table structure
 typedef struct {
-	int rlen;                  // # of fields in each record
+	int rlen;           // # of fields in each record
 	csv_field **header; // Table metadata
 	csv_record *start;  // Pointer to first record
 	csv_record *cur;    // Pointer to current record
 } csv_table;
+
+#if defined (_WIN16) || defined (_WIN32) || defined (_WIN64) || defined (__WIN32__) || defined (__TOS_WIN__) || defined (__WINDOWS__)
+# define _EOL_ "\r\n"
+#elif defined (OS2) || defined(_OS2) || defined(__OS2__) || defined (__TOS_OS2__)
+# define _EOL_ "\r\n"
+#elif defined (MSDOS) || defined (__MSDOS__) || defined (_MSDOS) || defined (__DOS__)
+# define _EOL_ "\r\n"
+#elif defined (macintosh) || defined (Macintosh)
+# define _EOL_ "\r"
+#else
+# define _EOL_ "\n"
+#endif
 
 __BEGIN_DECLS
 bool csv_validate_file( FILE *, bool );
