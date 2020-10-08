@@ -4,8 +4,8 @@
  * Author: Michael Warren, a.k.a Psycho Cod3r *
  * Date: September 2020                       *
  * License: Michael Warren FSL                *
- * Current module: Header file for entire     *
- *                 automata functionality     *
+ * Current module: Header file for automata   *
+ *                 functionality              *
  **********************************************/
 
 #ifndef _AUTOMATA_
