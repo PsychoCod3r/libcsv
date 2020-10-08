@@ -17,6 +17,7 @@
 #include <math.h>
 #include "csv.h"
 #include "automata.h"
+#include "dfloat.h"
 
 // Used in case the last line of the
 // file is not newline-terminated
@@ -41,6 +42,7 @@ bool is_eof( FILE *fp ){
 	}\
 	size = 64
 
+// Returns true if valid CSV, false otherwise
 bool csv_validate_file( FILE *fp, bool has_header ){
 	long pos;
 	int c;
@@ -307,9 +309,10 @@ bool csv_validate_file( FILE *fp, bool has_header ){
 	return (state == FINAL);
 }
 
+// Reads a CSV table from a file
 csv_table *csv_read_table( FILE *fp, bool has_header ){
 	long pos;
-	double tmpf;
+	dfloat64_t *tmpf;
 	csv_table *table;
 	int i, f, c, x, state, len, size;
 	char *buf = NULL;
@@ -427,9 +430,9 @@ csv_table *csv_read_table( FILE *fp, bool has_header ){
 				strncpy( table->cur->record[f], ptr, len + 1 );
 			}
 			else if( table->header[f]->type == csv_number ){
-				table->cur->record[f] = malloc( sizeof( double ) );
-				tmpf = atof( ptr );
-				memcpy( table->cur->record[f], &tmpf, sizeof( double ) );
+				table->cur->record[f] = malloc( sizeof( dfloat64_t ) );
+				tmpf = dfloat64_atof( ptr );
+				memcpy( table->cur->record[f], tmpf, sizeof( dfloat64_t ) );
 			}
 			ptr += len;
 			while( ptr[0] == '\0' ) ptr++;
@@ -441,6 +444,60 @@ csv_table *csv_read_table( FILE *fp, bool has_header ){
 	return table;
 }
 
+// Writes a CSV table to a file, starting at the current file
+// position, can be used multiple times with different tables
+// to concatenate them into one file
 void csv_write_table( FILE *fp, csv_table *table, bool has_header ){
-	// MORE CODE HERE
+	csv_record *saved;
+	dfloat64_t *tmpf;
+	char *tmpstr;
+	char *fstr;
+	int f;
+	int i;
+	int len;
+	tmpf = (dfloat64_t *) malloc( sizeof( dfloat64_t ) );
+	if( has_header ){
+		f = 0;
+		while( f < table->rlen ){
+			fputc( '"', fp );
+			fputs( table->header[f]->name, fp );
+			fputc( '"', fp );
+			if( (++f) == table->rlen )
+				fputs( _EOL_, fp );
+			else
+				fputc( ',', fp );
+		}
+	}
+	saved = table->cur;
+	table->cur = table->start;
+	while( table->cur->next ){
+		table->cur = table->cur->next;
+		f = 0;
+		while( f < table->rlen ){
+			if( table->header[f]->type == csv_string ){
+				len = strlen( (char *) table->cur->record[f] );
+				tmpstr = (char *) malloc( len + 1 );
+				strncpy( tmpstr, table->cur->record[f], len + 1 );
+				for( i = 0; i < len; i++ ){
+					if( tmpstr[i] == '"' || tmpstr[i] == '\n' ){
+						fprintf( stderr, "String contains invalid characters.\n" );
+						return;
+					}
+				}
+				fputc( '"', fp );
+				fputs( (char *) tmpstr, fp );
+				fputc( '"', fp );
+			}
+			else if( table->header[f]->type == csv_number ){
+				memcpy( tmpf, table->cur->record[f], sizeof( dfloat64_t ) );
+				fstr = dfloat64_ftoa( tmpf );
+				fputs( fstr, fp );
+				free( fstr ); // fstr was malloc'ed by dfloat64_ftoa()
+			}
+			if( (++f) == table->rlen )
+				fputs( _EOL_, fp );
+			else
+				fputc( ',', fp );
+		}
+	}
 }
