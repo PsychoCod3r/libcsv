@@ -61,13 +61,18 @@ Installation and usage instructions:
    one folder.
 
 2. Run the following commands:
+
    gcc -c csv-file.c dfloat.c
+
    ar -rsv libcsv.a csv-file.o
+
    ar -rsv libdfloat.a dfloat.o
 
 3. To link the libcsv and libdfloat libraries to a project, run the
    following command:
+
    gcc myproject -L dir -lcsv -ldfloat
+
    (where dir is the directory containing libcsv.a and libdfloat.a)
 
 ------------------------------------------------------------------------
