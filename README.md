@@ -1,4 +1,4 @@
-libcsv is a CSV library writen for the C programming language. It allows
+libcsv is a CSV library written for the C programming language. It allows
 a user to parse CSV code and read it into an abstract table structure,
 as well as write a table back to a file. In the future I will add
 functions for reading and modifying the table structures themselves.
