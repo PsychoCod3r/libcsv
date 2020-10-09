@@ -72,6 +72,8 @@ Installation and usage instructions:
 
    ar -rsv libdfloat.a dfloat.o
 
+   (Use the -D_DEBUG option in gcc to compile in debugging mode.)
+
 3. To link the libcsv and libdfloat libraries to a project, run the
    following command:
 
