@@ -45,7 +45,7 @@ This repository currently includes the following files:
 
 - automata.h - a header file that includes macros and types for automata
   that are used internally by libcsv; this file is needed when compiling
-  libcsv but you will not need to #include it in any projects that use
+  libcsv but you will not need to `#include` it in any projects that use
   libcsv
 
 - csv_file.c - contains function definitions for working with CSV files
@@ -78,7 +78,7 @@ Installation and usage instructions:
 
    `gcc myproject -L dir -lcsv -ldfloat`
 
-   (where dir is the directory containing libcsv.a and libdfloat.a)
+   (where `dir` is the directory containing libcsv.a and libdfloat.a)
 
 ---------------------------------------------------------------------------
 
