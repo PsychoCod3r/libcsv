@@ -28,36 +28,35 @@ algorithms, providing a robust data interchange API that the programmer
 can build machine learning algorithms on top of, and allowing them to
 make their own decisions from thence onward.
 
-Note: libcsv has one dependency: libdfloat. You can find this other
-library in my list of repositories. You want to download both repositories
-and merge them into one directory before compiling.
+Note: libcsv has one dependency: libdfloat. You can find it
+[here](https://github.com/PsychoCod3r/libdfloat).
 
 ---------------------------------------------------------------------------
 
 This repository currently includes the following files:
 
-README - this file
+- README - this file
 
-LICENSE - the Michael Warren Free Software License under which this and
-all my other software is released
+- LICENSE - the Michael Warren Free Software License under which this and
+  all my other software is released
 
-csv.h - the main header file - defines all the data types and functions
-related to CSV tables and CSV files
+- csv.h - the main header file - defines all the data types and functions
+  related to CSV tables and CSV files
 
-automata.h - a header file that includes macros and types for automata
-that are used internally by libcsv; this file is needed when compiling
-libcsv but you will not need to #include it in any projects that use
-libcsv
+- automata.h - a header file that includes macros and types for automata
+  that are used internally by libcsv; this file is needed when compiling
+  libcsv but you will not need to #include it in any projects that use
+  libcsv
 
-csv_file.c - contains function definitions for working with CSV files
+- csv_file.c - contains function definitions for working with CSV files
 
-parser-demo.c - a demo program for the CSV validator and interpreter,
-released very early on in libcsv's development and not really necessary
-anymore
+- parser-demo.c - a demo program for the CSV validator and interpreter,
+  released very early on in libcsv's development and not really necessary
+  anymore
 
-doc.txt - documentation of types and functions
+- doc.txt - documentation of types and functions
 
-------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 Installation and usage instructions:
 
@@ -66,22 +65,22 @@ Installation and usage instructions:
 
 2. Run the following commands:
 
-   gcc -c csv-file.c dfloat.c
+   `gcc -c csv-file.c dfloat.c`
 
-   ar -rsv libcsv.a csv-file.o
+   `ar -rsv libcsv.a csv-file.o`
 
-   ar -rsv libdfloat.a dfloat.o
+   `ar -rsv libdfloat.a dfloat.o`
 
-   (Use the -D_DEBUG option in gcc to compile in debugging mode.)
+   (Use the `-D_DEBUG` option in gcc to compile in debugging mode.)
 
 3. To link the libcsv and libdfloat libraries to a project, run the
    following command:
 
-   gcc myproject -L dir -lcsv -ldfloat
+   `gcc myproject -L dir -lcsv -ldfloat`
 
    (where dir is the directory containing libcsv.a and libdfloat.a)
 
-------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 If you have any feedback or want to report any issues, please don't
 hesitate to notify me. You are helping me make these libraries
