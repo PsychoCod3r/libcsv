@@ -1,4 +1,4 @@
-libcsv is a CSV library written for the C programming language. It allows
+libcsv is a CSV library writen for the C programming language. It allows
 a user to parse CSV code and read it into an abstract table structure,
 as well as write a table back to a file. In the future I will add
 functions for reading and modifying the table structures themselves.
@@ -6,6 +6,7 @@ functions for reading and modifying the table structures themselves.
 ---------------------------------------------------------------------------
 
 Why did I write this library?
+
 I wanted to make data science and machine learning programming in C
 easier. Currently most ML programming is done in either R or Python,
 and neither of these languages allow you to implement your own
@@ -14,7 +15,10 @@ is designed to be more powerful and flexible than any Python or R library,
 giving a C programmer the basic tools for constructing machine learning
 algorithms to their own exacting specifications.
 
+---------------------------------------------------------------------------
+
 Who is this library for?
+
 This library is written for power users, control freaks, and just people
 who like implementing things themselves. It is written for data scientists
 and AI programmers who want a greater degree of flexibility than is
@@ -80,4 +84,4 @@ Installation and usage instructions:
 If you have any feedback or want to report any issues, please don't
 hesitate to notify me. You are helping me make these libraries
 better. This library is currently in its alpha stage and needs people
-to alpha-test it. Your participation would be greatly appreciated.
+to alpha-test it. Your participation is greatly appreciated.
