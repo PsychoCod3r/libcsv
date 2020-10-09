@@ -1,3 +1,5 @@
+**Introduction:**
+
 libcsv is a CSV library written for the C programming language. It allows
 a user to parse CSV code and read it into an abstract table structure, as
 well as write a table back to a file. In the future I will add functions
@@ -5,7 +7,7 @@ for reading and modifying the table structures themselves.
 
 ---------------------------------------------------------------------------
 
-Why did I write this library?
+**Why did I write this library?**
 
 I wanted to make data science and machine learning programming in C
 easier. Currently most ML programming is done in either R or Python,
@@ -17,7 +19,7 @@ algorithms to their own exacting specifications.
 
 ---------------------------------------------------------------------------
 
-Who is this library for?
+**Who is this library for?**
 
 This library is written for power users, control freaks, and just people
 who like implementing things themselves. It is written for data scientists
@@ -28,12 +30,9 @@ algorithms, providing a robust data interchange API that the programmer
 can build machine learning algorithms on top of, and allowing them to
 make their own decisions from thence onward.
 
-Note: libcsv has one dependency: libdfloat. You can find it
-[here](https://github.com/PsychoCod3r/libdfloat).
-
 ---------------------------------------------------------------------------
 
-This repository currently includes the following files:
+**Files included in this repository:**
 
 - README - this file
 
@@ -58,7 +57,14 @@ This repository currently includes the following files:
 
 ---------------------------------------------------------------------------
 
-Installation and usage instructions:
+**Dependencies:**
+
+[**libdfloat**](https://github.com/PsychoCod3r/libdfloat) (Implements the
+main numerical type used by libcsv)
+
+---------------------------------------------------------------------------
+
+**Installation and usage instructions:**
 
 1. Download libcsv and libdfloat repositories and merge them into
    one folder.
