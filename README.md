@@ -55,6 +55,8 @@ make their own decisions from thence onward.
 
 - doc.txt - documentation of types and functions
 
+- syntax.vim: Additional syntax highlighting for Vim users
+
 ---------------------------------------------------------------------------
 
 **Dependencies:**
