@@ -82,12 +82,12 @@
 
 6. FSL software may be combined with non-FSL software under certain
    conditions, which will be detailed in the following paragraph.
-   If such combination occurs, then only the FSL-released portion of the
-   product is affected by the terms of this license.  FSL-licensed
-   software may be combined with closed-source software, as long as the
-   source code for the FSL-released portion is made public.  However,
-   FSL software may not under any circumstances be combined with software
-   that violates Section 4 of this license.
+   If such combination occurs, then only the FSL-licensed or FSL-derived
+   portion of the product is affected by the terms of this license.
+   FSL-licensed software may be combined with closed-source software, as
+   long as the source code for the FSL-licensed portion is made public.
+   However, FSL software may not under any circumstances be combined
+   with software that violates Section 4 of this license.
 
 7. Michael Warren has final say on any confusions that may arise regarding
    the interpretation of any clause of the present document.  Furthermore,
