@@ -1,7 +1,5 @@
 ## The Apolitical Code of Conduct
 
----------------------------------------------------------------------------
-
 **Purpose of this CoC:**
 
 This CoC was made in response to other CoC's which the author sees
