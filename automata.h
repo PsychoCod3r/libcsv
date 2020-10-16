@@ -1,5 +1,5 @@
 /**********************************************
- * libcsv, Version 0.1 Alpha                  *
+ * libcsv, Version 0.2 Alpha                  *
  * Description: CSV library for C             *
  * Author: Michael Warren, a.k.a Psycho Cod3r *
  * Date: September 2020                       *

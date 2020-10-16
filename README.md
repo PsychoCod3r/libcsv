@@ -34,10 +34,15 @@ make their own decisions from thence onward.
 
 **Files included in this repository:**
 
-- README - this file
+- README.md - this file
 
-- LICENSE - the Michael Warren Free Software License under which this and
-  all my other software is released
+- LICENSE.md - the Michael Warren Free Software License under which this
+  and all my other software is released
+
+- CoC.md - the Apolitical Code of Conduct which is used for this project
+
+- TODO.md - list of modifications I want to make to this software in
+  the future
 
 - csv.h - the main header file - defines all the data types and functions
   related to CSV tables and CSV files
@@ -48,6 +53,9 @@ make their own decisions from thence onward.
   libcsv
 
 - csv_file.c - contains function definitions for working with CSV files
+
+- csv_table.c - contains function definitions for working with CSV tables
+  in the fashion of a relational database
 
 - parser-demo.c - a demo program for the CSV validator and interpreter,
   released very early on in libcsv's development and not really necessary
@@ -68,20 +76,25 @@ main numerical type used by libcsv)
 
 **Installation and usage instructions:**
 
-1. Download libcsv and libdfloat repositories and merge them into
-   one folder.
+1. Clone the libcsv and libdfloat repositories.
 
-2. Run the following commands:
+2. Run the following commands in the libdfloat directory:
 
-   `gcc -c csv-file.c dfloat.c`
-
-   `ar -rsv libcsv.a csv-file.o`
+   `gcc -c dfloat.c`
 
    `ar -rsv libdfloat.a dfloat.o`
 
-   (Use the `-D_DEBUG` option in gcc to compile in debugging mode.)
+3. Run the following commands in the libcsv directory:
 
-3. To link the libcsv and libdfloat libraries to a project, run the
+   `gcc -c csv_file.c csv_table.c`
+
+   `ar -rsv libcsv.a csv_file.o csv_table.o`
+
+   (Use the `-D_DEBUG` option in `gcc` to compile in debugging mode.)
+
+4. Place libcsv.a and libdfloat.a in the same directory.
+
+5. To link the libcsv and libdfloat libraries to a project, run the
    following command:
 
    `gcc myproject -L dir -lcsv -ldfloat`

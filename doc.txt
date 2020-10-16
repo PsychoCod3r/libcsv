@@ -8,10 +8,9 @@ csv_table - a handle for a table structure
 csv_record - a handle for a single record within a table
 csv_field - a single field in the CSV header
 
-Ideally, only the csv_table type should be accessed directly, but I
-understand that until I implement more of the interface, use of some of
-the internal implementation components may be necessary. Thank you for
-your patience. :)
+Usually only the csv_table structure needs to be accessed
+directly. csv_field only needs to be used when initializing a table,
+and csv_record is only used internally by the library.
 
 
 libcsv defines the following functions:
@@ -28,20 +27,91 @@ returning a pointer to the table structure
 void csv_write_table( FILE *fp, csv_table *table, bool has_header )
 Writes a CSV table structure back to the file pointed to by fp
 
+csv_table *csv_create_table( int rlen, csv_field **field_vector )
+Creates a new CSV table, initializing it with rlen fields specified by
+field_vector
+
+void csv_drop_table( csv_table *table )
+Frees a table structure and sets its pointer to NULL
+
+csv_record *csv_next_record( csv_table *table )
+Moves the Current Record Pointer to the next record in the table and
+returns NULL if there are no more records
+
+void csv_rewind( csv_table *table )
+Rewinds the Current Record Pointer to the beginning of the table, which
+is a placeholder record (you have to use csv_next_record() from here to
+get to the first record in the table)
+
+void csv_insert_record( csv_table *table, void **record )
+Appends the record given by the second argument to the end of the table;
+this record should include void pointers with values copied into them
+using either memcpy() or strncpy()
+
+void csv_delete_current_record( csv_table *table )
+Deletes the record pointed to by the Current Record Pointer
+
+dfloat64_t *csv_get_number_field_by_name( csv_table *table, char *name )
+Returns the numeric value stored in the field in the current record
+given by name
+
+dfloat64_t *csv_get_number_field_by_index( csv_table *table, int index )
+Returns the numeric value stored in the field in the current record
+given by index
+
+char *csv_get_string_field_by_name( csv_table *table, char *name )
+Returns the string stored in the field in the current record given by
+name
+
+char *csv_get_string_field_by_index( csv_table *table, int index )
+Returns the string stored in the field in the current record given by
+index
+
+void csv_set_number_field_by_name( csv_table *table, char *name, dfloat64_t *val )
+Sets the number field in the current record given by name to the value
+given by val
+
+void csv_set_number_field_by_index( csv_table *table, int index, dfloat64_t *val )
+Sets the number field in the current record given by index to the value
+given by val
+
+void csv_set_string_field_by_name( csv_table *table, char *name, char *val )
+Copies the string given by val into the string field in the current
+record given by name
+
+void csv_set_string_field_by_index( csv_table *table, int index, char *val )
+Copies the string given by val into the string field in the current
+record given by name
+
+You can also use the following abbreviations for the setter and getter functions:
+
+csv_gnfbn() for csv_get_number_field_by_name()
+csv_gnfbi() for csv_get_number_field_by_index()
+csv_gsfbn() for csv_get_string_field_by_name()
+csv_gsfbi() for csv_get_string_field_by_index()
+csv_snfbn() for csv_set_number_field_by_name()
+csv_snfbi() for csv_set_number_field_by_index()
+csv_ssfbn() for csv_set_string_field_by_name()
+csv_ssfbi() for csv_set_string_field_by_index()
+
 
 libcsv has one dependency: libdfloat. libdfloat can be found in the
-libdfloat repository on my GitHub (github.com/PsychoCod3r).
+libdfloat repository on my GitHub (github.com/PsychoCod3r/libdfloat).
 
 
 Installation and usage instructions:
 
-1. Download libcsv and libdfloat repositories and merge them into
-   one folder.
+1. Clone the libcsv and libdfloat repositories.
 
-2. Run the following commands:
-   gcc -c csv-file.c dfloat.c
-   ar -rsv libcsv.a csv-file.o
+2. Run the following commands in the libdfloat directory:
+   gcc -c dfloat.c
    ar -rsv libdfloat.a dfloat.o
+
+3. Run the following commands in the libcsv directory:
+   gcc -c csv_file.c csv_table.c
+   ar -rsv libcsv.a csv_file.o csv_table.o
+
+4. Place libcsv.a and libdfloat.a in the same directory.
 
 3. To link the libcsv and libdfloat libraries to a project, run the
    following command:
