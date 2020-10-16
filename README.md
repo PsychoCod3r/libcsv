@@ -2,8 +2,9 @@
 
 libcsv is a CSV library written for the C programming language. It allows
 a user to parse CSV code and read it into an abstract table structure, as
-well as write a table back to a file. In the future I will add functions
-for reading and modifying the table structures themselves.
+well as write a table back to a file. It also combines CSV with the
+relational database concept, implementing various SQL operations that
+a programmer can use to operate on CSV tables.
 
 ---------------------------------------------------------------------------
 
