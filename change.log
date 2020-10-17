@@ -1,0 +1,31 @@
+Version 0.1:
+Modules:
+- csv_file.c
+- csv.h
+- automata.h
+Included working implementations of:
+- csv_validate_table()
+- csv_read_table()
+- csv_write_table()
+
+Version 0.1.0.1:
+Updated Markdown files
+
+Version 0.2:
+Added module csv_table.c
+Including functions:
+- csv_create_table()
+- csv_drop_table()
+- csv_next_record()
+- csv_rewind()
+- csv_insert_record()
+- csv_delete_current_record()
+- csv_get_number_field_by_name()
+- csv_get_number_field_by_index()
+- csv_get_string_field_by_name()
+- csv_get_string_field_by_index()
+- csv_set_number_field_by_name()
+- csv_set_number_field_by_index()
+- csv_set_string_field_by_name()
+- csv_set_string_field_by_index()
+Added abbreviations for setter and getter functions in csv.h
