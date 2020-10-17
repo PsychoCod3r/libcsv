@@ -44,6 +44,8 @@ make their own decisions from thence onward.
 
 - TODO.md - list of modifications I want to make to this software in
   the future
+  
+- DOC.md - documentation of all types and functions defined in libcsv
 
 - csv.h - the main header file - defines all the data types and functions
   related to CSV tables and CSV files
@@ -61,8 +63,6 @@ make their own decisions from thence onward.
 - parser-demo.c - a demo program for the CSV validator and interpreter,
   released very early on in libcsv's development and not really necessary
   anymore
-
-- doc.txt - documentation of types and functions
 
 - change.log: Log of changes made with each release of libcsv
 
