@@ -81,7 +81,7 @@ main numerical type used by libcsv)
 
 2. Run the following commands in the libdfloat directory:
 
-   `gcc -c dfloat.c`
+   `gcc -c dfloat.c dfloat_free.c`
 
    `ar -rsv libdfloat.a dfloat.o`
 
