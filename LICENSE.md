@@ -33,8 +33,8 @@
 
 - In the following document, the terms "telemetry" and "surveillance"
   refer to any method of covertly collecting any data on any individual
-  using a piece of FSL-licensed software unless such data was explicitly
-  and intentionally provided by that individual.
+  using a piece of FSL software unless such data was explicitly and
+  intentionally provided by that individual.
 
 ### Sections:
 
