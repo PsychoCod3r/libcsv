@@ -1,9 +1,9 @@
 /**********************************************
- * libcsv, Version 0.2 Alpha                  *
+ * libcsv, Version 0.2.1 Alpha                *
  * Description: CSV library for C             *
  * Author: Michael Warren, a.k.a Psycho Cod3r *
  * Date: September 2020                       *
- * License: Michael Warren FSL                *
+ * License: Michael Warren FSL Version 1.1    *
  * Current module: Header file for automata   *
  *                 functionality              *
  **********************************************/

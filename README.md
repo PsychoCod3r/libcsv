@@ -44,8 +44,6 @@ make their own decisions from thence onward.
 
 - TODO.md - list of modifications I want to make to this software in
   the future
-  
-- DOC.md - documentation of all types and functions defined in libcsv
 
 - csv.h - the main header file - defines all the data types and functions
   related to CSV tables and CSV files
@@ -64,7 +62,7 @@ make their own decisions from thence onward.
   released very early on in libcsv's development and not really necessary
   anymore
 
-- change.log: Log of changes made with each release of libcsv
+- doc.txt - documentation of types and functions
 
 - syntax.vim: Additional syntax highlighting for Vim users
 
@@ -83,7 +81,7 @@ main numerical type used by libcsv)
 
 2. Run the following commands in the libdfloat directory:
 
-   `gcc -c dfloat.c dfloat_free.c`
+   `gcc -c dfloat.c`
 
    `ar -rsv libdfloat.a dfloat.o`
 
