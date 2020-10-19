@@ -53,6 +53,8 @@ make their own decisions from thence onward.
   libcsv but you will not need to `#include` it in any projects that use
   libcsv
 
+- dfloat.h - header file for numerical types and operations used by libcsv
+
 - csv_file.c - contains function definitions for working with CSV files
 
 - csv_table.c - contains function definitions for working with CSV tables
