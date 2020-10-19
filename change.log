@@ -29,3 +29,6 @@ Including functions:
 - csv_set_string_field_by_name()
 - csv_set_string_field_by_index()
 Added abbreviations for setter and getter functions in csv.h
+
+Version 0.2.1:
+Added dfloat.h to make compilation easier
