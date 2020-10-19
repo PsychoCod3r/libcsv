@@ -36,6 +36,8 @@
   using a piece of FSL software unless such data was explicitly and
   intentionally provided by that individual.
 
+---------------------------------------------------------------------------
+
 ### Sections:
 
 1. This document is a binding legal contract between all parties involved
