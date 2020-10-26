@@ -32,3 +32,6 @@ Added abbreviations for setter and getter functions in csv.h
 
 Version 0.2.1:
 Added dfloat.h to make compilation easier
+
+Version 0.2.2:
+Added csv_insert_new_record()
