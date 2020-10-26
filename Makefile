@@ -10,6 +10,7 @@
 
 TEST_FILE := test.c
 
+CPP_OPT :=
 # CPP_OPT := -D_DEBUG
 # Uncomment if compiling libcsv in debugging mode.
 
