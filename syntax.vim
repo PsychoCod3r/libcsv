@@ -9,6 +9,7 @@ syntax keyword cFunction csv_drop_table
 syntax keyword cFunction csv_alter_table_add
 syntax keyword cFunction csv_alter_table_drop
 syntax keyword cFunction csv_insert_record
+syntax keyword cFunction csv_insert_new_record
 syntax keyword cFunction csv_delete_current_record
 syntax keyword cFunction csv_next_record
 syntax keyword cFunction csv_rewind

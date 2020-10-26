@@ -1,5 +1,5 @@
 /**********************************************
- * libcsv, Version 0.2.1 Alpha                *
+ * libcsv, Version 0.2.2 Alpha                *
  * Description: CSV library for C             *
  * Author: Michael Warren, a.k.a Psycho Cod3r *
  * Date: September 2020                       *
@@ -73,6 +73,7 @@ csv_table *csv_alter_table_drop( csv_table *, char * );
 csv_record *csv_next_record( csv_table * );
 void csv_rewind( csv_table * );
 void csv_insert_record( csv_table *, void ** );
+void csv_insert_new_record( csv_table * );
 void csv_delete_current_record( csv_table * );
 dfloat64_t *csv_get_number_field_by_name( csv_table *, char * );
 dfloat64_t *csv_get_number_field_by_index( csv_table *, int );

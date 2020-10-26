@@ -1,5 +1,5 @@
 /**********************************************
- * libcsv, Version 0.2.1 Alpha                *
+ * libcsv, Version 0.2.2 Alpha                *
  * Description: CSV library for C             *
  * Author: Michael Warren, a.k.a Psycho Cod3r *
  * Date: September 2020                       *
@@ -92,6 +92,22 @@ void csv_insert_record( csv_table *table, void **record ){
 	}
 	table->cur->next = NULL;
 	table->cur = save;
+}
+
+// INSERT a blank record and move to that record
+void csv_insert_new_record( csv_table *table ){
+	int f;
+	while( csv_next_record( table ) );
+	table->cur->next = (csv_record *) calloc( 1, sizeof( csv_record ) );
+	csv_next_record( table );
+	table->cur->record = (void **) calloc( table->rlen, sizeof( void * ) );
+	for( f = 0; f < table->rlen; f++ ){
+		if( table->header[f]->type == csv_number )
+			table->cur->record[f] = malloc( sizeof( dfloat64_t ) );
+		else if( table->header[f]->type == csv_string )
+			table->cur->record[f] = malloc( 1 );
+	}
+	table->cur->next = NULL;
 }
 
 // Equivalent to DELETE FROM in SQL except it deletes the

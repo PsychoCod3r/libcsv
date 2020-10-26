@@ -42,8 +42,12 @@ make their own decisions from thence onward.
 
 - CoC.md - the Apolitical Code of Conduct which is used for this project
 
+- DOC.md - documentation of types and functions
+
 - TODO.md - list of modifications I want to make to this software in
   the future
+
+- Makefile - used for building libcsv
 
 - csv.h - the main header file - defines all the data types and functions
   related to CSV tables and CSV files
@@ -55,16 +59,14 @@ make their own decisions from thence onward.
 
 - dfloat.h - header file for numerical types and operations used by libcsv
 
-- csv_file.c - contains function definitions for working with CSV files
+- csv\_file.c - contains function definitions for working with CSV files
 
-- csv_table.c - contains function definitions for working with CSV tables
+- csv\_table.c - contains function definitions for working with CSV tables
   in the fashion of a relational database
 
 - parser-demo.c - a demo program for the CSV validator and interpreter,
   released very early on in libcsv's development and not really necessary
   anymore
-
-- doc.txt - documentation of types and functions
 
 - syntax.vim: Additional syntax highlighting for Vim users
 
@@ -79,21 +81,12 @@ main numerical type used by libcsv)
 
 **Installation and usage instructions:**
 
-1. Clone the libcsv and libdfloat repositories.
+1. Clone both the libcsv and libdfloat repositories.
 
-2. Run the following commands in the libdfloat directory:
+2. Follow the libdfloat repo's instructions for building libdfloat.
 
-   `gcc -c dfloat.c`
-
-   `ar -rsv libdfloat.a dfloat.o`
-
-3. Run the following commands in the libcsv directory:
-
-   `gcc -c csv_file.c csv_table.c`
-
-   `ar -rsv libcsv.a csv_file.o csv_table.o`
-
-   (Use the `-D_DEBUG` option in `gcc` to compile in debugging mode.)
+3. Go into the libcsv directory and enter `make` at the command shell.
+   To remove any temporary files, follow this with `make clean`.
 
 4. Place libcsv.a and libdfloat.a in the same directory.
 
