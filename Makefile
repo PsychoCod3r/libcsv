@@ -22,7 +22,7 @@ libcsv.a: csv_file.o csv_table.o
 	ar -rsv $@ csv_file.o csv_table.o
 
 csv_file.o: csv_file.c csv.h automata.h
-	gcc -c csv_file.c
+	gcc $(CPP_OPT) -c csv_file.c
 
 csv_table.o: csv_table.c csv.h
 	gcc -c csv_table.c
