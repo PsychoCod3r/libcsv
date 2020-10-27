@@ -9,6 +9,7 @@
 # libdfloat.a into current directory.
 
 TEST_FILE := test.c
+GCC_OPT :=
 
 CPP_OPT := #-D_DEBUG
 # Uncomment if compiling libcsv in debugging mode.
@@ -22,10 +23,10 @@ libcsv.a: csv_file.o csv_table.o
 	ar -rsv $@ csv_file.o csv_table.o
 
 csv_file.o: csv_file.c csv.h automata.h
-	gcc $(CPP_OPT) -c csv_file.c
+	gcc $(GCC_OPT) $(CPP_OPT) -c csv_file.c
 
 csv_table.o: csv_table.c csv.h
-	gcc -c csv_table.c
+	gcc $(GCC_OPT) -c csv_table.c
 
 clean:
 	rm *.o
