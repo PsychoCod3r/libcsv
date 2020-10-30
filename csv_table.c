@@ -67,6 +67,7 @@ csv_table *csv_create_table( int rlen, csv_field **field_vector ){
 	}
 	table->start = (csv_record *) malloc( sizeof( csv_record ) );
 	table->cur = table->start;
+	return table;
 }
 
 // Equivalent to INSERT INTO in SQL
