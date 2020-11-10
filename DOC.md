@@ -36,6 +36,12 @@ Usually only the `csv_table` structure needs to be accessed directly.
 `csv_field` only needs to be used when initializing a table, and `csv_record`
 is only used internally by the library.
 
+libcsv also defines the following additional data types:
+
+`csv_set` - set type representing a subset of the rows of a table
+
+`csv_partition` - a binary partition of a table into two subtables
+
 ---------------------------------------------------------------------------
 
 ### CSV File Functions:
@@ -195,6 +201,174 @@ You can also use the following abbreviations for the setter and getter functions
 `csv_ssfbn()` for `csv_set_string_field_by_name()`
 
 `csv_ssfbi()` for `csv_set_string_field_by_index()`
+
+--------------------------------------------------------------------------
+
+### Set and Row Selection Functions
+
+libcsv defines functions for working with sets and generating subset
+tables.
+
+---
+
+`csv_set *csv_empty_set( int size )`
+
+Returns an empty set of the given size
+
+---
+
+`csv_set *csv_set_universe( int size )`
+
+Returns the universal set of the given size (the set containing all
+elements/rows up to that number)
+
+---
+
+`void csv_set_add( csv_set *set, int element )`
+
+Adds the given element to the given set
+
+---
+
+`void csv_set_del( csv_set *set, int element )`
+
+Removes the given element from the given set
+
+---
+
+`bool csv_set_member( int element, csv_set *set )`
+
+Returns `true` if the given element is a member of the given set,
+`false` otherwise
+
+---
+
+`void csv_set_difference( csv_set *dst, csv_set *src )`
+
+Computes the set difference between the two operands, subtracting `src`
+from `dst` and storing the result in `dst`
+
+---
+
+`void csv_set_complement( csv_set *dst )`
+
+Computes the complement of `dst` and stores it in `dst`
+
+---
+
+`void csv_set_union( csv_set *dst, csv_set *src )`
+
+Computes the set union of `src` and `dst` and stores the result in `dst`
+
+---
+
+`void csv_set_intersection( csv_set *dst, csv_set *src )`
+
+Computes the set intersection of `src` and `dst` and stores the result in
+`dst`
+
+---
+
+`csv_set *csv_read_set( char * )`
+
+Takes a string with a hexadecimal representation of a set and reads the
+set from it, used mostly for debugging purposes
+
+---
+
+`char *csv_write_set( csv_set * )`
+
+Writes a hexadecimal representation of a set to a string
+
+---
+
+**The next five functions are designed for building complex expressions
+without lost objects accumulating.**
+
+---
+
+`csv_set *csv_set_difference_f( csv_set *set1, csv_set *set2 )`
+
+Returns the set difference between the two operands, freeing both of
+them in the process
+
+---
+
+`csv_set *csv_set_complement_f( csv_set *set )`
+
+Returns the complement of the operand, freeing it in the process
+
+---
+
+`csv_set *csv_set_union_f( csv_set *set1, csv_set *set2 )`
+
+Returns the union of the two operands, freeing both of them in the
+process
+
+---
+
+`csv_set *csv_set_intersection_f( csv_set *set1, csv_set *set2 )`
+
+Returns the intersection of the two operands, freeing both of them in
+the process
+
+---
+
+`char *csv_write_set_f( csv_set *set )`
+
+Writes the hexadecimal representation of a set to a string, freeing that
+set in the process
+
+---
+
+**The remaining functions are used for generating subsets from conditions
+and generating new tables from those subsets.**
+
+---
+
+`csv_set *csv_select_subset( csv_table *table, enum operators op, char *op1, char *op2 )`
+
+Generates a subset representing the rows of `table` that match the
+condition given by the operator `op` and operands `op1` and `op2`
+
+`op1` is typically a field and `op2` is typically an immediate value,
+unless `op` is `MOD`, in which case `op1` is the base of the modulus
+operator and `op2` is the residue class.
+
+`op` is one of the following:
+
+- `EQ` for number field `op1` == numeric value `op2`
+
+- `NE` for number field `op1` != numeric value `op2`
+
+- `LT` for number field `op1` > numeric value `op2`
+
+- `GT` for number field `op1` < numeric value `op2`
+
+- `LE` for number field `op1` <= numeric value `op2`
+
+- `GE` for number field `op1` >= numeric value `op2`
+
+- `MOD` for row number % `op1` == `op2`
+
+- `SEQ` for string field `op1` == string value `op2`
+
+- `SNE` for string field `op1` != string value `op2`
+
+---
+
+`csv_table *csv_select_records_by_subset( csv_table *table, csv_set *subset )`
+
+Generates a new table containing all the rows of `table` represented by
+`subset`
+
+---
+
+`csv_partition *csv_partition_table_by_subset( csv_table *table, csv_set *subset )`
+
+Generates a partition `part` of `table` with `part.ident` containing
+all the rows represented by `subset` and `part.cplmt` containing all
+the rows not represented by `subset`
 
 --------------------------------------------------------------------------
 

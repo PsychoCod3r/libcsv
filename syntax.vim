@@ -29,6 +29,28 @@ syntax keyword cFunction csv_snfbn
 syntax keyword cFunction csv_snfbi
 syntax keyword cFunction csv_ssfbn
 syntax keyword cFunction csv_ssfbi
+syntax keyword cFunction csv_empty_set
+syntax keyword cFunction csv_set_add
+syntax keyword cFunction csv_set_del
+syntax keyword cFunction csv_set_member
+syntax keyword cFunction csv_set_universe
+syntax keyword cFunction csv_set_difference
+syntax keyword cFunction csv_set_complement
+syntax keyword cFunction csv_set_union
+syntax keyword cFunction csv_set_intersection
+syntax keyword cFunction csv_set_difference_f
+syntax keyword cFunction csv_set_complement_f
+syntax keyword cFunction csv_set_union_f
+syntax keyword cFunction csv_set_intersection_f
+syntax keyword cFunction csv_select_subset
+syntax keyword cFunction csv_read_set
+syntax keyword cFunction csv_write_set
+syntax keyword cFunction csv_write_set_f
+syntax keyword cFunction csv_select_records
+syntax keyword cFunction csv_select_records_by_subset
+syntax keyword cFunction csv_select_records_by_expr
+syntax keyword cFunction csv_partition_table_by_subset
+syntax keyword cFunction csv_partition_table_by_expr
 syntax keyword cFunction is_eof
 syntax keyword cFunction read_line
 
@@ -75,9 +97,22 @@ syntax keyword cType tm_head
 syntax keyword cType csv_field
 syntax keyword cType csv_record
 syntax keyword cType csv_table
+syntax keyword cType csv_set
+syntax keyword cType csv_partition
 
 "Other_Macros:
 syntax keyword cConstant _EOL_
+
+"Operators:
+syntax keyword cConstant EQ
+syntax keyword cConstant NE
+syntax keyword cConstant LT
+syntax keyword cConstant GT
+syntax keyword cConstant LE
+syntax keyword cConstant GE
+syntax keyword cConstant SEQ
+syntax keyword cConstant SNE
+syntax keyword cConstant MOD
 
 
 "Syntax file for libdfloat
