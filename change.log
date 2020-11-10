@@ -35,3 +35,28 @@ Added dfloat.h to make compilation easier
 
 Version 0.2.2:
 Added csv_insert_new_record()
+
+Version 0.3:
+Added module csv_set.c
+Including functions:
+- csv_empty_set()
+- csv_set_universe()
+- csv_set_add()
+- csv_set_del()
+- csv_set_member()
+- csv_set_difference()
+- csv_set_complement()
+- csv_set_union()
+- csv_set_intersection()
+- csv_set_difference_f()
+- csv_set_complement_f()
+- csv_set_union_f()
+- csv_set_intersection_f()
+- csv_read_set()
+- csv_write_set()
+- csv_write_set_f()
+Added module csv_select.c
+Including functions:
+- csv_select_subset()
+- csv_select_records_by_subset()
+- csv_partition_table_by_subset()
