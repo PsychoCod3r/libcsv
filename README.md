@@ -64,6 +64,11 @@ make their own decisions from thence onward.
 - csv\_table.c - contains function definitions for working with CSV tables
   in the fashion of a relational database
 
+- csv\_set.c - contains function definitions for working with set types
+
+- csv\_select.c - contains function definitions for selecting subsets
+  for records from tables
+
 - parser-demo.c - a demo program for the CSV validator and interpreter,
   released very early on in libcsv's development and not really necessary
   anymore
